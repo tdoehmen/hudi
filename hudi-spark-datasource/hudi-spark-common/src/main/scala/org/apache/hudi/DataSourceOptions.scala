@@ -22,7 +22,8 @@ import org.apache.hudi.common.model.OverwriteWithLatestAvroPayload
 import org.apache.hudi.common.model.WriteOperationType
 import org.apache.hudi.config.HoodieWriteConfig
 import org.apache.hudi.hive.HiveSyncTool
-import org.apache.hudi.hive.SlashEncodedDayPartitionValueExtractor
+//import org.apache.hudi.hive.SlashEncodedDayPartitionValueExtractor
+import org.apache.hudi.hive.{MultiPartKeysValueExtractor, SlashEncodedDayPartitionValueExtractor}
 import org.apache.hudi.keygen.SimpleKeyGenerator
 import org.apache.hudi.keygen.constant.KeyGeneratorOptions
 import org.apache.log4j.LogManager
@@ -320,7 +321,8 @@ object DataSourceWriteOptions {
   val DEFAULT_HIVE_PASS_OPT_VAL = "hive"
   val DEFAULT_HIVE_URL_OPT_VAL = "jdbc:hive2://localhost:10000"
   val DEFAULT_HIVE_PARTITION_FIELDS_OPT_VAL = ""
-  val DEFAULT_HIVE_PARTITION_EXTRACTOR_CLASS_OPT_VAL = classOf[SlashEncodedDayPartitionValueExtractor].getCanonicalName
+  //  val DEFAULT_HIVE_PARTITION_EXTRACTOR_CLASS_OPT_VAL = classOf[SlashEncodedDayPartitionValueExtractor].getCanonicalName
+  val DEFAULT_HIVE_PARTITION_EXTRACTOR_CLASS_OPT_VAL = classOf[MultiPartKeysValueExtractor].getCanonicalName
   val DEFAULT_HIVE_ASSUME_DATE_PARTITION_OPT_VAL = "false"
   val DEFAULT_USE_PRE_APACHE_INPUT_FORMAT_OPT_VAL = "false"
   val DEFAULT_HIVE_USE_JDBC_OPT_VAL = "true"

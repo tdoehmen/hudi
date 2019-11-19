@@ -82,9 +82,12 @@
                   <include>org.eclipse.jetty.websocket:*</include>
                   <include>org.jetbrains.kotlin:*</include>
                   <include>org.rocksdb:rocksdbjni</include>
-                  <include>org.apache.httpcomponents:httpclient</include>
-                  <include>org.apache.httpcomponents:httpcore</include>
-                  <include>org.apache.httpcomponents:fluent-hc</include>
+<!--                  <include>org.apache.httpcomponents:httpclient</include>-->
+<!--                  <include>org.apache.httpcomponents:httpcore</include>-->
+<!--                  <include>org.apache.httpcomponents:fluent-hc</include>-->
+                  <include>org.apache.httpcomponents:*</include>
+                  <include>com.fasterxml.jackson:*</include>
+
                   <include>org.antlr:stringtemplate</include>
                   <include>org.apache.parquet:parquet-avro</include>
 
@@ -132,28 +135,28 @@
                   <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hive.jdbc.</shadedPattern>
                 </relocation>
                 <relocation>
-                  <pattern>org.apache.hadoop.hive.metastore.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hadoop.hive.metastore.</shadedPattern>
+                  <pattern>${hive.groupid}.metastore.</pattern>
+                  <shadedPattern>${spark.bundle.hive.shade.prefix}${hive.groupid}.metastore.</shadedPattern>
                 </relocation>
                 <relocation>
-                  <pattern>org.apache.hive.common.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hive.common.</shadedPattern>
+                  <pattern>${hive.groupid}.common.</pattern>
+                  <shadedPattern>${spark.bundle.hive.shade.prefix}${hive.groupid}.common.</shadedPattern>
                 </relocation>
                 <relocation>
-                  <pattern>org.apache.hadoop.hive.common.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hadoop.hive.common.</shadedPattern>
+                  <pattern>${hive.groupid}.common.</pattern>
+                  <shadedPattern>${spark.bundle.hive.shade.prefix}${hive.groupid}.common.</shadedPattern>
                 </relocation>
                 <relocation>
-                  <pattern>org.apache.hadoop.hive.conf.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hadoop.hive.conf.</shadedPattern>
+                  <pattern>${hive.groupid}.conf.</pattern>
+                  <shadedPattern>${spark.bundle.hive.shade.prefix}${hive.groupid}.conf.</shadedPattern>
                 </relocation>
                 <relocation>
-                  <pattern>org.apache.hive.service.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hive.service.</shadedPattern>
+                  <pattern>${hive.groupid}.service.</pattern>
+                  <shadedPattern>${spark.bundle.hive.shade.prefix}${hive.groupid}.service.</shadedPattern>
                 </relocation>
                 <relocation>
-                  <pattern>org.apache.hadoop.hive.service.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hadoop.hive.service.</shadedPattern>
+                  <pattern>${hive.groupid}.service.</pattern>
+                  <shadedPattern>${spark.bundle.hive.shade.prefix}${hive.groupid}.service.</shadedPattern>
                 </relocation>
                 <relocation>
                   <pattern>com.codahale.metrics.</pattern>
@@ -226,6 +229,8 @@
       <groupId>org.apache.hudi</groupId>
       <artifactId>hudi-hive-sync</artifactId>
       <version>${project.version}</version>
+      <exclusions>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.hudi</groupId>
@@ -273,6 +278,8 @@
       <artifactId>hive-service</artifactId>
       <version>${hive.version}</version>
       <scope>${spark.bundle.hive.scope}</scope>
+      <exclusions>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -287,6 +294,8 @@
       <artifactId>hive-jdbc</artifactId>
       <version>${hive.version}</version>
       <scope>${spark.bundle.hive.scope}</scope>
+      <exclusions>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -301,6 +310,7 @@
       <artifactId>hive-common</artifactId>
       <version>${hive.version}</version>
       <scope>${spark.bundle.hive.scope}</scope>
+
     </dependency>
 
     <dependency>

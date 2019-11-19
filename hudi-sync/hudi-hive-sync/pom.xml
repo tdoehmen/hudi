@@ -74,28 +74,28 @@
 
     <!-- Hadoop -->
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
+      <groupId>${hadoop.groupid}</groupId>
       <artifactId>hadoop-common</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
+      <groupId>${hadoop.groupid}</groupId>
       <artifactId>hadoop-client</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
+      <groupId>${hadoop.groupid}</groupId>
       <artifactId>hadoop-hdfs</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
+      <groupId>${hadoop.groupid}</groupId>
       <artifactId>hadoop-auth</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
+      <groupId>${hadoop.groupid}</groupId>
       <artifactId>hadoop-common</artifactId>
       <classifier>tests</classifier>
     </dependency>
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
+      <groupId>${hadoop.groupid}</groupId>
       <artifactId>hadoop-hdfs</artifactId>
       <classifier>tests</classifier>
     </dependency>
@@ -114,12 +114,30 @@
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-log4j12</artifactId>
         </exclusion>
+	<exclusion>
+	  <groupId>io.hops.hive</groupId>
+	  <artifactId>hive-llap-server</artifactId>
+	</exclusion>
+	<exclusion>
+	  <groupId>io.hops.hive</groupId>
+	  <artifactId>hive-llap-tez</artifactId>
+	</exclusion>
       </exclusions>
     </dependency>
     <dependency>
       <groupId>${hive.groupid}</groupId>
       <artifactId>hive-jdbc</artifactId>
       <version>${hive.version}</version>
+      <exclusions>
+	<exclusion>
+	  <groupId>io.hops.hive</groupId>
+	  <artifactId>hive-llap-server</artifactId>
+	</exclusion>
+	<exclusion>
+	  <groupId>io.hops.hive</groupId>
+	  <artifactId>hive-llap-tez</artifactId>
+	</exclusion>
+      </exclusions>      
     </dependency>
     <dependency>
       <groupId>${hive.groupid}</groupId>
@@ -180,13 +198,13 @@
 
     <!-- Hadoop - Test -->
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
+      <groupId>${hadoop.groupid}</groupId>
       <artifactId>hadoop-mapreduce-client-common</artifactId>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
+      <groupId>${hadoop.groupid}</groupId>
       <artifactId>hadoop-mapreduce-client-core</artifactId>
       <scope>test</scope>
     </dependency>
