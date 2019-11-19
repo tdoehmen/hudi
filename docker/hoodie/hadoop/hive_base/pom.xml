@@ -41,6 +41,16 @@
         <version>${project.version}</version>
         <type>pom</type>
         <scope>import</scope>
+	<exclusions>
+	  <exclusion>
+	    <groupId>io.hops.hive</groupId>
+	    <artifactId>hive-llap-server</artifactId>
+	  </exclusion>
+	  <exclusion>
+	    <groupId>io.hops.hive</groupId>
+	    <artifactId>hive-llap-tez</artifactId>
+	  </exclusion>
+	</exclusions>            
       </dependency>
     </dependencies>
   </dependencyManagement>

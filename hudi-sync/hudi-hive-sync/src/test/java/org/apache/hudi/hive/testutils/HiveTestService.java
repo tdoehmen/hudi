@@ -175,7 +175,7 @@ public class HiveTestService {
     conf.set("datanucleus.fixedDatastore", "false");
     setSystemProperty("derby.stream.error.file", derbyLogFile.getPath());
 
-    return new HiveConf(conf, this.getClass());
+    return new HiveConf(conf, this.getClass(), true);
   }
 
   private boolean waitForServerUp(HiveConf serverConf, String hostname, int port, int timeout) {

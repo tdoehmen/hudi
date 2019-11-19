@@ -449,9 +449,9 @@ public class HoodieHiveClient extends AbstractSyncHoodieClient {
       urlAppend = hiveJdbcUrl.substring(hiveJdbcUrl.indexOf(";"));
       hiveJdbcUrl = hiveJdbcUrl.substring(0, hiveJdbcUrl.indexOf(";"));
     }
-    if (!hiveJdbcUrl.endsWith("/")) {
-      hiveJdbcUrl = hiveJdbcUrl + "/";
-    }
+    //    if (!hiveJdbcUrl.endsWith("/")) {
+    //      hiveJdbcUrl = hiveJdbcUrl + "/";
+    //    }
     return hiveJdbcUrl + (urlAppend == null ? "" : urlAppend);
   }
 
