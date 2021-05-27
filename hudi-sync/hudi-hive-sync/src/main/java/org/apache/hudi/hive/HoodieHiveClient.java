@@ -246,6 +246,7 @@ public class HoodieHiveClient extends AbstractSyncHoodieClient {
     }
   }
 
+<<<<<<< HEAD
   public Option<String> getLastReplicatedTime(String tableName) {
     // Get the last replicated time from the TBLproperties
     try {
@@ -256,6 +257,23 @@ public class HoodieHiveClient extends AbstractSyncHoodieClient {
       return Option.empty();
     } catch (Exception e) {
       throw new HoodieHiveSyncException("Failed to get the last replicated time from the database", e);
+=======
+  private void createHiveConnection() {
+    if (connection == null) {
+      try {
+        Class.forName("io.hops.hive.jdbc.HiveDriver");
+      } catch (ClassNotFoundException e) {
+        LOG.error("Unable to load Hive driver class", e);
+        return;
+      }
+
+      try {
+        this.connection = DriverManager.getConnection(syncConfig.jdbcUrl, syncConfig.hiveUser, syncConfig.hivePass);
+        LOG.info("Successfully established Hive connection to  " + syncConfig.jdbcUrl);
+      } catch (SQLException e) {
+        throw new HoodieHiveSyncException("Cannot create hive connection " + getHiveJdbcUrlWithDefaultDBName(), e);
+      }
+>>>>>>> 71d03c2a4 (Hopsfiy Hudi version 0.8.0)
     }
   }
 

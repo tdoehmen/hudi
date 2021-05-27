@@ -26,7 +26,7 @@
     <version>21</version>
   </parent>
 
-  <groupId>org.apache.hudi</groupId>
+  <groupId>io.hops.hudi</groupId>
   <artifactId>hudi</artifactId>
   <packaging>pom</packaging>
   <version>0.10.0</version>
@@ -103,9 +103,9 @@
     <log4j.version>1.2.17</log4j.version>
     <slf4j.version>1.7.30</slf4j.version>
     <joda.version>2.9.9</joda.version>
-    <hadoop.version>2.7.3</hadoop.version>
-    <hive.groupid>org.apache.hive</hive.groupid>
-    <hive.version>2.3.1</hive.version>
+    <hadoop.version>3.2.0.3-RC0</hadoop.version>
+    <hive.groupid>io.hops.hive</hive.groupid>
+    <hive.version>3.0.0.8-SNAPSHOT</hive.version>
     <hive.exec.classifier>core</hive.exec.classifier>
     <metrics.version>4.1.1</metrics.version>
     <orc.version>1.6.0</orc.version>
@@ -728,7 +728,7 @@
 
       <!-- Hadoop -->
       <dependency>
-        <groupId>org.apache.hadoop</groupId>
+        <groupId>io.hops</groupId>
         <artifactId>hadoop-client</artifactId>
         <version>${hadoop.version}</version>
         <scope>provided</scope>
@@ -744,7 +744,7 @@
         </exclusions>
       </dependency>
       <dependency>
-        <groupId>org.apache.hadoop</groupId>
+        <groupId>io.hops</groupId>
         <artifactId>hadoop-common</artifactId>
         <version>${hadoop.version}</version>
         <scope>provided</scope>
@@ -757,22 +757,32 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
       <dependency>
-        <groupId>org.apache.hadoop</groupId>
+        <groupId>io.hops</groupId>
         <artifactId>hadoop-hdfs</artifactId>
         <version>${hadoop.version}</version>
         <scope>provided</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
-        <groupId>org.apache.hadoop</groupId>
+        <groupId>io.hops</groupId>
         <artifactId>hadoop-auth</artifactId>
         <version>${hadoop.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>org.apache.hadoop</groupId>
+        <groupId>io.hops</groupId>
         <artifactId>hadoop-mapreduce-client-core</artifactId>
         <version>${hadoop.version}</version>
         <scope>provided</scope>
@@ -781,10 +791,14 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
       <dependency>
-        <groupId>org.apache.hadoop</groupId>
+        <groupId>io.hops</groupId>
         <artifactId>hadoop-mapreduce-client-common</artifactId>
         <version>${hadoop.version}</version>
         <scope>provided</scope>
@@ -793,21 +807,35 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
       <dependency>
-        <groupId>org.apache.hadoop</groupId>
+        <groupId>io.hops</groupId>
         <artifactId>hadoop-hdfs</artifactId>
         <classifier>tests</classifier>
         <scope>test</scope>
         <version>${hadoop.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
-        <groupId>org.apache.hadoop</groupId>
+        <groupId>io.hops</groupId>
         <artifactId>hadoop-common</artifactId>
         <classifier>tests</classifier>
         <version>${hadoop.version}</version>
         <exclusions>
+          <exclusion>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>jdk.tools</groupId>
             <artifactId>jdk.tools</artifactId>
@@ -831,7 +859,7 @@
             <artifactId>*</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
           <exclusion>
@@ -855,7 +883,7 @@
             <artifactId>jaxb-api</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
           <exclusion>
@@ -866,7 +894,7 @@
       </dependency>
       <dependency>
         <groupId>${hive.groupid}</groupId>
-        <artifactId>hive-jdbc</artifactId>
+        <artifactId>hops-jdbc</artifactId>
         <version>${hive.version}</version>
         <scope>provided</scope>
         <exclusions>
@@ -875,7 +903,7 @@
             <artifactId>mail</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
         </exclusions>
@@ -911,7 +939,7 @@
             <artifactId>mail</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
         </exclusions>
@@ -927,7 +955,7 @@
             <artifactId>mail</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
         </exclusions>
@@ -944,7 +972,7 @@
             <artifactId>mail</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
           <exclusion>
@@ -1055,6 +1083,14 @@
     </dependencies>
   </dependencyManagement>
   <repositories>
+    <repository>
+      <id>hops-release</id>
+      <name>Hops Release Repository</name>
+      <url>https://archiva.hops.works/repository/Hops/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
     <repository>
       <id>Maven Central</id>
       <name>Maven Repository</name>
