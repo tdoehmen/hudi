@@ -143,12 +143,12 @@ public class TestHiveMetastoreBasedLockProvider {
   private static void createHiveConnection() {
     if (connection == null) {
       try {
-        Class.forName("org.apache.hive.jdbc.HiveDriver");
+        Class.forName("io.hops.hive.jdbc.HiveDriver");
       } catch (ClassNotFoundException e) {
         throw new RuntimeException();
       }
       try {
-        connection = DriverManager.getConnection("jdbc:hive2://127.0.0.1:9999/");
+        connection = DriverManager.getConnection("jdbc:hopshive://127.0.0.1:9999/");
       } catch (SQLException e) {
         throw new HoodieHiveSyncException("Cannot create hive connection ", e);
       }
