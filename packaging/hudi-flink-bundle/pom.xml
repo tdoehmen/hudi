@@ -217,6 +217,10 @@
                   <shadedPattern>${flink.bundle.shade.prefix}com.codahale.metrics.</shadedPattern>
                 </relocation>
                 <relocation>
+                  <pattern>io.prometheus.client.</pattern>
+                  <shadedPattern>org.apache.hudi.io.prometheus.client.</shadedPattern>
+                </relocation>
+                <relocation>
                   <pattern>org.apache.commons.codec.</pattern>
                   <shadedPattern>${flink.bundle.shade.prefix}org.apache.commons.codec.</shadedPattern>
                 </relocation>
