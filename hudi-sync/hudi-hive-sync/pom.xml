@@ -231,6 +231,11 @@
       <artifactId>hadoop-mapreduce-client-core</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.hops.hive</groupId>
+      <artifactId>hops-jdbc</artifactId>
+      <scope>compile</scope>
+    </dependency>
 
   </dependencies>
 

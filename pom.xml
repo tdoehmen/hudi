@@ -117,7 +117,6 @@
     <flink.version>1.13.1</flink.version>
     <spark2.version>2.4.4</spark2.version>
     <spark3.version>3.1.2</spark3.version>
-    <spark2bundle.version></spark2bundle.version>
     <spark3bundle.version>3</spark3bundle.version>
     <hudi.spark.module>hudi-spark2</hudi.spark.module>
     <avro.version>1.8.2</avro.version>
@@ -921,10 +920,12 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
+          <!--
           <exclusion>
             <groupId>io.hops</groupId>
             <artifactId>*</artifactId>
           </exclusion>
+          -->
         </exclusions>
       </dependency>
       <dependency>
@@ -965,10 +966,12 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
+          <!--
           <exclusion>
             <groupId>io.hops</groupId>
             <artifactId>*</artifactId>
           </exclusion>
+          -->
         </exclusions>
       </dependency>
       <dependency>

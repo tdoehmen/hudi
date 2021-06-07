@@ -67,7 +67,9 @@ public enum StorageSchemes {
   // JuiceFileSystem
   JFS("jfs", true),
   // Baidu Object Storage
-  BOS("bos", false);
+  BOS("bos", false),
+  // HopsFS handle Hopsworks external clients
+  HOPSFS("hopsfs", true);
 
   private String scheme;
   private boolean supportsAppend;
