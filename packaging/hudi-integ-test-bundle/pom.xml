@@ -129,7 +129,7 @@
 
                   <include>io.hops.hive:hive-common</include>
                   <include>io.hops.hive:hive-service</include>
-                  <include>io.hops.hive:hive-metastore</include>
+                  <include>io.hops.hive:hops-hive-standalone-metastore</include>
                   <include>io.hops.hive:hops-jdbc</include>
                   <include>io.hops.hive:hive-exec</include>
 
@@ -390,7 +390,7 @@
 
     <dependency>
       <groupId>${hive.groupid}</groupId>
-      <artifactId>hive-metastore</artifactId>
+      <artifactId>hops-hive-standalone-metastore</artifactId>
       <version>${hive.version}</version>
       <scope>provided</scope>
     </dependency>

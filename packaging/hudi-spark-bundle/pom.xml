@@ -104,7 +104,7 @@
                   <include>io.hops.hive:hive-common</include>
                   <include>io.hops.hive:hive-service</include>
                   <include>io.hops.hive:hive-service-rpc</include>
-                  <include>io.hops.hive:hive-metastore</include>
+                  <include>io.hops.hive:hops-hive-standalone-metastore</include>
                   <include>io.hops.hive:hops-jdbc</include>
 
                   <include>org.apache.hbase:hbase-client</include>
@@ -132,32 +132,8 @@
                   <shadedPattern>${spark.bundle.spark.shade.prefix}org.apache.spark.sql.avro.</shadedPattern>
                 </relocation>
                 <relocation>
-                  <pattern>org.apache.hive.jdbc.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hive.jdbc.</shadedPattern>
-                </relocation>
-                <relocation>
                   <pattern>org.apache.hadoop.hive.metastore.</pattern>
                   <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hadoop.hive.metastore.</shadedPattern>
-                </relocation>
-                <relocation>
-                  <pattern>org.apache.hive.common.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hive.common.</shadedPattern>
-                </relocation>
-                <relocation>
-                  <pattern>org.apache.hadoop.hive.common.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hadoop.hive.common.</shadedPattern>
-                </relocation>
-                <relocation>
-                  <pattern>org.apache.hadoop.hive.conf.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hadoop.hive.conf.</shadedPattern>
-                </relocation>
-                <relocation>
-                  <pattern>org.apache.hive.service.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hive.service.</shadedPattern>
-                </relocation>
-                <relocation>
-                  <pattern>org.apache.hadoop.hive.service.</pattern>
-                  <shadedPattern>${spark.bundle.hive.shade.prefix}org.apache.hadoop.hive.service.</shadedPattern>
                 </relocation>
                 <relocation>
                   <pattern>com.codahale.metrics.</pattern>
@@ -299,9 +275,9 @@
 
     <dependency>
       <groupId>${hive.groupid}</groupId>
-      <artifactId>hive-metastore</artifactId>
+      <artifactId>hops-hive-standalone-metastore</artifactId>
       <version>${hive.version}</version>
-      <scope>${spark.bundle.hive.scope}</scope>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>

@@ -75,7 +75,7 @@
         </dependency>
         <dependency>
             <groupId>${hive.groupid}</groupId>
-            <artifactId>hive-metastore</artifactId>
+            <artifactId>hops-hive-standalone-metastore</artifactId>
             <version>${hive.version}</version>
             <scope>test</scope>
         </dependency>
