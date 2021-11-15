@@ -103,9 +103,9 @@
     <log4j.version>1.2.17</log4j.version>
     <slf4j.version>1.7.30</slf4j.version>
     <joda.version>2.9.9</joda.version>
-    <hadoop.version>3.2.0.3-RC0</hadoop.version>
+    <hadoop.version>3.2.0.4-RC0</hadoop.version>
     <hive.groupid>io.hops.hive</hive.groupid>
-    <hive.version>3.0.0.8-SNAPSHOT</hive.version>
+    <hive.version>3.0.0.8</hive.version>
     <hive.exec.classifier>core</hive.exec.classifier>
     <metrics.version>4.1.1</metrics.version>
     <orc.version>1.6.0</orc.version>
@@ -533,7 +533,12 @@
         <artifactId>jersey-container-servlet-core</artifactId>
         <version>${glassfish.version}</version>
       </dependency>
-
+      <!-- https://mvnrepository.com/artifact/org.glassfish/javax.el -->
+      <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.el</artifactId>
+        <version>3.0.1-b06</version>
+      </dependency>
       <!-- Avro -->
       <dependency>
         <groupId>org.apache.avro</groupId>
@@ -863,6 +868,10 @@
             <artifactId>*</artifactId>
           </exclusion>
           <exclusion>
+            <groupId>io.hops.tez</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+          <exclusion>
             <groupId>org.pentaho</groupId>
             <artifactId>*</artifactId>
           </exclusion>
@@ -887,6 +896,10 @@
             <artifactId>*</artifactId>
           </exclusion>
           <exclusion>
+            <groupId>io.hops</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+          <exclusion>
             <groupId>org.pentaho</groupId>
             <artifactId>*</artifactId>
           </exclusion>
@@ -906,6 +919,10 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>io.hops</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
       <dependency>
@@ -917,6 +934,10 @@
           <exclusion>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.hops</groupId>
+            <artifactId>*</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
@@ -942,6 +963,10 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>*</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>io.hops</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
       <dependency>
@@ -956,6 +981,10 @@
           </exclusion>
           <exclusion>
             <groupId>org.eclipse.jetty</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.hops</groupId>
             <artifactId>*</artifactId>
           </exclusion>
         </exclusions>
@@ -973,6 +1002,10 @@
           </exclusion>
           <exclusion>
             <groupId>org.eclipse.jetty</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.hops</groupId>
             <artifactId>*</artifactId>
           </exclusion>
           <exclusion>

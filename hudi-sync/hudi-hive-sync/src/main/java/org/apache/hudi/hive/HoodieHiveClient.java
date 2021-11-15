@@ -36,7 +36,7 @@ import org.apache.hadoop.hive.metastore.IMetaStoreClient;
 import org.apache.hadoop.hive.metastore.api.NoSuchObjectException;
 import org.apache.hadoop.hive.metastore.api.Partition;
 import org.apache.hadoop.hive.metastore.api.Table;
-import org.apache.hadoop.hive.ql.metadata.Hive;
+import org.apache.hadoop.hive.metastore.RetryingMetaStoreClient;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.parquet.schema.MessageType;
@@ -86,7 +86,7 @@ public class HoodieHiveClient extends AbstractSyncHoodieClient {
       } else {
         ddlExecutor = cfg.useJdbc ? new JDBCExecutor(cfg, fs) : new HiveQueryDDLExecutor(cfg, fs, configuration);
       }
-      this.client = Hive.get(configuration).getMSC();
+      this.client = RetryingMetaStoreClient.getProxy(configuration,false);
     } catch (Exception e) {
       throw new HoodieHiveSyncException("Failed to create HiveMetaStoreClient", e);
     }
@@ -246,7 +246,6 @@ public class HoodieHiveClient extends AbstractSyncHoodieClient {
     }
   }
 
-<<<<<<< HEAD
   public Option<String> getLastReplicatedTime(String tableName) {
     // Get the last replicated time from the TBLproperties
     try {
@@ -257,23 +256,6 @@ public class HoodieHiveClient extends AbstractSyncHoodieClient {
       return Option.empty();
     } catch (Exception e) {
       throw new HoodieHiveSyncException("Failed to get the last replicated time from the database", e);
-=======
-  private void createHiveConnection() {
-    if (connection == null) {
-      try {
-        Class.forName("io.hops.hive.jdbc.HiveDriver");
-      } catch (ClassNotFoundException e) {
-        LOG.error("Unable to load Hive driver class", e);
-        return;
-      }
-
-      try {
-        this.connection = DriverManager.getConnection(syncConfig.jdbcUrl, syncConfig.hiveUser, syncConfig.hivePass);
-        LOG.info("Successfully established Hive connection to  " + syncConfig.jdbcUrl);
-      } catch (SQLException e) {
-        throw new HoodieHiveSyncException("Cannot create hive connection " + getHiveJdbcUrlWithDefaultDBName(), e);
-      }
->>>>>>> 71d03c2a4 (Hopsfiy Hudi version 0.8.0)
     }
   }
 
@@ -313,7 +295,7 @@ public class HoodieHiveClient extends AbstractSyncHoodieClient {
     try {
       ddlExecutor.close();
       if (client != null) {
-        Hive.closeCurrent();
+        client.close();
         client = null;
       }
     } catch (Exception e) {
