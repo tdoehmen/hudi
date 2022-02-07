@@ -19,13 +19,13 @@
     <parent>
         <artifactId>hudi</artifactId>
         <groupId>io.hops.hudi</groupId>
-        <version>0.10.0</version>
+        <version>0.10.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>hudi-kafka-connect</artifactId>
     <description>Kafka Connect Sink Connector for Hudi</description>
-    <version>0.10.0</version>
+    <version>0.10.0.1</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -111,17 +111,17 @@
 
         <!-- Hudi Dependencies -->
         <dependency>
-            <groupId>org.apache.hudi</groupId>
+            <groupId>io.hops.hudi</groupId>
             <artifactId>hudi-java-client</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.hudi</groupId>
+            <groupId>io.hops.hudi</groupId>
             <artifactId>hudi-utilities_${scala.binary.version}</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.hudi</groupId>
+            <groupId>io.hops.hudi</groupId>
             <artifactId>hudi-client-common</artifactId>
             <version>${project.version}</version>
             <exclusions>
@@ -141,7 +141,7 @@
         </dependency>
         <!-- NOTE: This is temp (SchemaProvide dep) until PR3162 lands -->
         <dependency>
-            <groupId>org.apache.hudi</groupId>
+            <groupId>io.hops.hudi</groupId>
             <artifactId>hudi-flink_${scala.binary.version}</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -215,7 +215,7 @@
 
         <!-- Hudi - Test -->
         <dependency>
-            <groupId>org.apache.hudi</groupId>
+            <groupId>io.hops.hudi</groupId>
             <artifactId>hudi-common</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
