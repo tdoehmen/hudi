@@ -94,6 +94,8 @@ object AvroConversionHelper {
           (item: AnyRef) =>
             if (item == null) {
               null
+            } else if (item.isInstanceOf[java.math.BigDecimal]) {
+              createDecimal(item.asInstanceOf[java.math.BigDecimal], d.precision, d.scale)
             } else {
               val decimalConversion = new DecimalConversion
               val bigDecimal = decimalConversion.fromFixed(item.asInstanceOf[GenericFixed], avroSchema,
